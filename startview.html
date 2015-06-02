@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/cookies.min.js"></script>
+<link type="text/css" href="css/startviewStyling.css" rel="stylesheet" />
+<link type="text/css" href="css/styling.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="css/images/kub.png">
+<title>Lava</title>
+</head>
+
+
+<body onload="setCurrentUser()">
+	<div id="statusbar">
+		<p id="currUser"></p></div>
+	<img id="lava" src="css/images/lava.png" ></img>
+
+	<!--<div id ="menu">-->
+		<a href="searchview.html"  id="searchref">
+			<img class="icon" src="css/images/searchR.png" id="search"/>
+		</a>
+		<a href="favoritesview.html"  id="favref" onclick="getFavorites()">
+			<img class="icon" src="css/images/fav.png" id="fav" />
+		</a>
+
+
+		<a href="listview.html"  id="listref">
+
+			<img class="icon" src="css/images/list.png" id="list"/>
+		</a>
+	<!--</div>-->
+	<img id="skyline" src="css/images/dev.png"></img>
+
+
+
+</body>
+</html>

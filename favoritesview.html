@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/cookies.min.js"></script>
+<link type="text/css" href="css/startviewStyling.css" rel="stylesheet" />
+<link type="text/css" href="css/styling.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="css/images/kub.png">
+<title>Bokmärken</title>
+</head>
+
+<body onload="populateTable();setCurrentUser()">
+	<div id="statusbar">
+		<p id="currUser"></p>
+	</div>
+	<img id="lavafav" src="css/images/lavafav.png" ></img>
+	<img id="skyline" src="css/images/dev.png"></img>
+	<table id="table">
+	</table>
+
+	<button onclick="goBack()" id="back">Back</button>
+</body>
+</html>

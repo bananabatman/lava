@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/cookies.min.js"></script>
+<link type="text/css" href="css/startviewStyling.css" rel="stylesheet" />
+<link type="text/css" href="css/styling.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="css/images/kub.png">
+<title>Bokmärken</title>
+</head>
+
+<body onload="setCurrentUser()">
+	<div id="statusbar">
+		<p id="currUser"></p>
+	</div>
+	<p id="compName" class="text"></p>
+	<img id="favCompView" src="css/images/fav.png" onclick="setFavorite()" class="icon"></img>
+	<img id="location" src="css/images/map.png" class="icon"></img>
+
+	<button onclick="goBack()" id="back">Back</button>
+</body>
+</html>

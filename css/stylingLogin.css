@@ -1,0 +1,46 @@
+#username {
+	position:absolute;
+	height:5%;
+	width:50%;
+	top:43%;
+	left:52%;
+	margin-left:-25%;
+	font-size:50px;
+	color:gray;
+	padding-left:15px;
+	opacity:0.8;
+}
+
+#pwrd {
+	position:absolute;
+	height:5%;
+	width:50%;
+	top:50%;
+	left:52%;
+	margin-left:-25%;
+	font-size:50px;
+	color:gray;
+	padding-left:15px;
+	opacity: 0.8;
+}
+
+#submit {
+	background-image:url("images/login.png");
+	position:absolute;
+	top:60%;
+	left:43%;
+	margin-left:-9%;
+	height:7%;
+	width:13%;
+	opacity: 0.9;
+}
+
+#new {
+	position:absolute;
+	top:59%;
+	left:61%;
+	margin-left:-9%;
+	height:10%;
+	width:18%;
+	opacity: 0.9;
+}

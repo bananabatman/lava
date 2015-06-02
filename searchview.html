@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/cookies.min.js"></script>
+<link type="text/css" href="css/styling.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="css/images/kub.png">
+<title>Sök</title>
+</head>
+
+
+<body onload="setCurrentUser()">
+	<div id="statusbar">
+		<p id="currUser" ></p>
+	</div>
+	<img id="lavasearch" src="css/images/lavasearch.png" ></img>
+	<img id="skyline" src="css/images/dev.png"></img>
+	<form id="searchbar" method="post" onsubmit="return populateTable()">
+		<input type="text" name="searchphrase" id="searchid"/>
+		<!--Stoppa in resultat med ajax -->
+	</form>
+
+
+
+	<table id="tablesearch">
+	</table>
+
+	<button onclick="goBack()" id="back">Back</button>
+
+
+	</body>
+</html>
+ 
