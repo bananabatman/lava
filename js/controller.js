@@ -88,10 +88,26 @@ var loadCompPage = function (companyname) {
 	var cname = companyname.innerHTML;
 	Cookies.set("cname", cname);
 	console.log("compname "+ cname);
-	// Jag tror det kan lösaas genom att sätta en &=<företagsnamn> här så att man senare kan hämta den med en GET
-	// så kan php få ladda in företaget sen.
+	
 	window.location.href="companyview.html;
 	console.log("COMPANY JAO");
+}
+
+var getCompany() = function () {
+	// Load the company from the cookie set by loadCompPage
+	var cname = Cookies.get("cname");
+	console.log("Got cookie: " + cname);
+	
+	var div = document.getElementById("compInfo");
+	
+	$.ajax({
+		url:"php/getComp.php",
+		type: "GET",
+		dataType: "JSON",
+		success: function(data) {
+			console.log(data);
+			div.innerHTML = data[i];
+		}
 }
 
 
