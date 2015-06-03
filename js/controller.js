@@ -1,13 +1,14 @@
 // TO DO
 // •	Kunde ej komma åt lösenord till ellasadmin databas så lånade eriks. Registrera en ny användare för att testa. Lösenord hashas på servern. Så to do: Fixa egen databas.
 
-// •	Fixa sökfunktion och lägga in resultat i table - kunna söka på företagsnamn och filtrera på typ
+// •	DONE Fixa sökfunktion och lägga in resultat i table - kunna söka på företagsnamn - done
+//		och filtrera på typ
 // •	Knyta location-info till ikon (vilket rum i lokalen räcker med en popup)
 // •	ladda info om företag som visas i companyview vid klick på företag
-// •	populera table med företag - done
-// •	lägga till/ta bort företag som favorit via stjärnikon i companyview.html
-// •	Fixa login validering - done
-// •	Fixa ny användare - done
+// •	DONE populera table med företag - done
+// •	TYP DONE lägga till/ta bort företag som favorit via stjärnikon i companyview.html
+// •	DONE Fixa login validering - done
+// •	DONE Fixa ny användare - done
 
 
 
@@ -16,19 +17,22 @@ var validate = function() {
 	//checks with database
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("pwrd").value;
+	console.log(username + " " + password);
 	$.ajax({
 		url:"php/validate.php",
 		type: "GET",
 		data:{uname:username, pword:password},
 		dataType: 'JSON',
 		success: function(data) {
-			if(data==1) {
+			console.log(data);
+			if(data['userMatches']==1) {
 				Cookies.set("uname", username);
+				Cookies.set("uid", data['uid']);
 				window.location.href="startview.html";
 			} else {
 				alert("Fel användarnamn eller lösenord!");
 			}
-			console.log(data);
+			
 
 		}
 	})
@@ -82,6 +86,7 @@ var loadCompPage = function (companyname) {
 	//gets company info  and inserts it into page companyview.html
 	//then loads that page
 	var cname = companyname.innerHTML;
+	Cookies.set("cname", cname);
 	console.log("compname "+ cname);
 	// Jag tror det kan lösaas genom att sätta en &=<företagsnamn> här så att man senare kan hämta den med en GET
 	// så kan php få ladda in företaget sen.
@@ -94,6 +99,26 @@ var getFavorites = function () {
 	populateTable();
 }
 
+var search = function() {
+	var table = document.getElementById("tablesearch");
+	var cname = document.getElementById("searchid").value;
+	document.getElementById("searchid").value = "";
+	$("#tablesearch").html("");
+	console.log(cname);
+	$.ajax({
+		url:"php/search.php",
+		type: "POST",
+		data:{cname:cname},
+		dataType: 'JSON',
+		success: function(data) {
+			console.log("mjauy");
+			console.log(data);
+			for(i=0; i<data.length; i++) {
+				table.insertRow(i).insertCell(0).innerHTML="<p class='searchResult' onclick='loadCompPage(this)'>"+data[i]+"</p>";
+			}
+		}
+	})
+}
 
 var populateTable = function () {
 
@@ -121,16 +146,41 @@ var setFavorite = function () {
 	//inserts company information into favorites database
 
 	var favIcon = document.getElementById("favCompView");
-
+	var uid = Cookies.get("uid");
+	var cname = Cookies.get("cname");
 	if(favIcon.src.search("fav.png") != -1) {
-		favIcon.src="css/images/favok.png";
-		console.log("not fav.png")
+		$.ajax({
+			url:"php/addfav.php",
+			data: {uid:uid, cname:cname},
+			type: "POST",
+			dataType: 'JSON',
+			success: function(data) {
+				if(data){
+					favIcon.src="css/images/favok.png";
+				}
+				
+
+			}
+		})
+
 		//alert(Cookies.get("cname")+" added to favorites!");
 		//add favorite
 	} else {
 		//remove favorite
 		//alert(Cookies.get("cname")+" removed from favorites!");
-		favIcon.src="css/images/fav.png";
+		$.ajax({
+			url:"php/removefav.php",
+			data: {uid:uid, cname:cname},
+			type: "POST",
+			dataType: 'JSON',
+			success: function(data) {
+				if(data){
+					favIcon.src="css/images/fav.png";
+				}
+				
+
+			}
+		})
 	}
 	
 	

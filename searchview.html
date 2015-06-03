@@ -11,19 +11,16 @@
 </head>
 
 
-<body onload="setCurrentUser()">
+<body>
 	<div id="statusbar">
 		<p id="currUser" ></p>
 	</div>
 	<img id="lavasearch" src="css/images/lavasearch.png" ></img>
 	<img id="skyline" src="css/images/dev.png"></img>
-	<form id="searchbar" method="post" onsubmit="return populateTable()">
-		<input type="text" name="searchphrase" id="searchid"/>
-		<!--Stoppa in resultat med ajax -->
-	</form>
+	<!-- <form id="searchbar" method="post" action="php/results.php"> -->
+	<input type="search" name="searchphrase" id="searchid" onsearch="search()"/>
 
-
-
+	<!-- </form> -->
 	<table id="tablesearch">
 	</table>
 

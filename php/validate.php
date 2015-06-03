@@ -3,9 +3,12 @@
 	include_once("functions.php");
 
 	$hashbrownie = hash("sha256", 'gnullipop'.$_GET['pword']);
-	$q = "SELECT count(*) userMatches FROM users WHERE username='".$_GET['uname']."' AND password='".$hashbrownie."';";
+	$q = "SELECT count(*) userMatches, uid FROM users WHERE username='".$_GET['uname']."' AND password='".$hashbrownie."';";
 	$result = queryDb($conn, $q);
-	$userMatches = $result->fetch_object()->userMatches;
-	echo json_encode($userMatches);
+	$row = $result->fetch_object();
+	$return = array();
+	$return['userMatches'] = $row->userMatches;
+	$return['uid'] = $row->uid;
+	echo json_encode($return);
 	
 ?>

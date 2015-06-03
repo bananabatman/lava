@@ -185,6 +185,10 @@ p{
 	opacity: 0.9;
 }
 
+.searchResult:hover{
+	cursor: pointer;
+}
+
 #menu {
 	top:40%;
 	left:50%;
