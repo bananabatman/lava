@@ -83,6 +83,8 @@ var loadCompPage = function (companyname) {
 	//then loads that page
 	var cname = companyname.innerHTML;
 	console.log("compname "+ cname);
+	// Jag tror det kan lösaas genom att sätta en &=<företagsnamn> här så att man senare kan hämta den med en GET
+	// så kan php få ladda in företaget sen.
 	window.location.href="companyview.html";
 	console.log("COMPANY JAO");
 }
