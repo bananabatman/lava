@@ -10,6 +10,7 @@
 
 	$companyName = $row->cname;
 	$companyInfo = $row->info;
+	
 	$company['cname'] = utf8_decode($companyName);
 	$company['info'] = utf8_decode($compayInfo);
 		
