@@ -99,6 +99,7 @@ var getCompany() = function () {
 	console.log("Got cookie: " + cname);
 	
 	var div = document.getElementById("compInfo");
+	var p = document.getElementById("compName");
 	
 	$.ajax({
 		url:"php/getComp.php",
@@ -106,8 +107,10 @@ var getCompany() = function () {
 		dataType: "JSON",
 		success: function(data) {
 			console.log(data);
-			div.innerHTML = data[i];
+			div.innerHTML = data.info;
+			p.innerHTML = data.cname;
 		}
+	})
 }
 
 
