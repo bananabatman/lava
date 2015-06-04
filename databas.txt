@@ -1,0 +1,7 @@
+Users 				username, uid, password
+
+Bookmarks			uid, cid, cname
+
+Company				cname, cid, type, info
+
+Locations 			cid, location, cname
