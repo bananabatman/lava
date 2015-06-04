@@ -2,19 +2,17 @@
 	include_once("dbconf.php");
 	include_once("functions.php");
 
-	$cname = $_COOKIE["cname"];
 	
-	$q = "SELECT cname, info FROM company WHERE cname = ".$cname.";";
+	$q = "SELECT info FROM company WHERE cname = '".$_GET['cname']."';";
 	$result = queryDb($conn, $q);
-	$companies = array();
+	//$companies = array();
 
-	$companyName = $row->cname;
-	$companyInfo = $row->info;
-	
-	$company['cname'] = utf8_decode($companyName);
-	$company['info'] = utf8_decode($compayInfo);
-		
-	array_push($companies, $company);
-	
-    echo json_encode($companies);
+	// while($row = $result->fetch_object()) {
+	// 	$company=utf8_encode($row->info);
+	// 	array_push($companies, $company);
+	// }
+
+	$info = utf8_encode($result->fetch_object()->info);
+
+    echo json_encode($info);
 ?>

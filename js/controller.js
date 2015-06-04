@@ -98,17 +98,19 @@ var getCompany = function () {
 	var cname = Cookies.get("cname");
 	console.log("Got cookie: " + cname);
 	
-	var div = document.getElementById("compInfo");
+	var info = document.getElementById("compInfo");
 	var p = document.getElementById("compName");
+	document.getElementById("title").innerHTML = cname;
 	
 	$.ajax({
 		url:"php/getcomp.php",
 		type: "GET",
+		data:{cname:cname},
 		dataType: "JSON",
 		success: function(data) {
 			console.log(data);
-			div.innerHTML = data.info;
-			p.innerHTML = data.cname;
+			info.innerHTML = data;
+			p.innerHTML = cname;
 		}
 	})
 }
@@ -174,13 +176,41 @@ var getCompanyList = function () {
 
 }
 
-var setFavorite = function () {
-	//when bookmark icon clicked in companyview.html
-	//inserts company information into favorites database
 
+var checkFavorite = function() {
 	var favIcon = document.getElementById("favCompView");
 	var uid = Cookies.get("uid");
 	var cname = Cookies.get("cname");
+
+	$.ajax({
+		url:"php/checkFav.php",
+		data: {uid:uid, cname:cname},
+		type: "POST",
+		dataType: 'JSON',
+		success: function(data) {
+			if(data){
+				console.log("fav true");
+				//add favorite
+				favIcon.src="css/images/favok.png";
+			} else {
+				console.log("fav false");
+
+				//remove favorite
+				favIcon.src="css/images/favok.png";
+			}
+			
+
+		}
+	})
+
+}
+
+var setFavorite = function () {
+	//when bookmark icon clicked in companyview.html
+	//inserts company information into favorites database
+	var uid = Cookies.get("uid");
+	var cname = Cookies.get("cname");
+
 	$.ajax({
 		url:"php/fav.php",
 		data: {uid:uid, cname:cname},
@@ -188,11 +218,14 @@ var setFavorite = function () {
 		dataType: 'JSON',
 		success: function(data) {
 			if(data){
+				console.log("fav true");
 				//add favorite
-				favIcon.src="css/images/favok.png";
+
 			} else {
+				console.log("fav false");
+
 				//remove favorite
-				favIcon.src="css/images/favok.png";
+
 			}
 			
 

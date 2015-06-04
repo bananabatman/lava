@@ -8,20 +8,20 @@
 <link type="text/css" href="css/startviewStyling.css" rel="stylesheet" />
 <link type="text/css" href="css/styling.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="css/images/kub.png">
-<title>Bokmärken</title>
+<title id="title"></title>
 </head>
 
-<body onload="getCompany();setCurrentUser()">
+<body onload="getCompany();setCurrentUser();checkFavorite()">
 	<div id="statusbar">
 		<p id="currUser"></p>
 	</div>
-	<p id="compName" class="text"></p>
+	<p id="compName"></p>
 	<img id="favCompView" src="css/images/fav.png" onclick="setFavorite()" class="icon"></img>
 	<img id="location" src="css/images/map.png" class="icon"></img>
 
 	<button onclick="goBack()" id="back">Back</button>
 	
-	<div id="compInfo">
-	</div>
+	<p id="compInfo">
+	</p>
 </body>
 </html>

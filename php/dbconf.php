@@ -1,8 +1,4 @@
 <?php
-	// $hostname = 'localhost';
-	// $username = 'eforsbe';
-	// $password = 'eforsbe-xmlpub13';
-	// $database = 'eforsbe';
 
 	$hostname = "mysql-vt2015.csc.kth.se";
 	$username = 'viktorbjadmin';
