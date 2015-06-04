@@ -8,8 +8,8 @@
 	$result = queryDb($conn, $q);
 	$companies = array();
 
-	$companyName = $row->cname;
-	$companyInfo = $row->info;
+	$companyName = utf8_encode($row->cname);
+	$companyInfo = utf8_encode($row->info);
 	
 	$company['cname'] = utf8_decode($companyName);
 	$company['info'] = utf8_decode($compayInfo);
