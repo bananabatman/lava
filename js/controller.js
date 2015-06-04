@@ -87,7 +87,7 @@ var loadCompPage = function (companyname) {
 	//then loads that page
 	var cname = companyname.innerHTML;
 	Cookies.set("cname", cname);
-	console.log("compname "+ cname);
+	console.log(cname);
 	
 	window.location.href="companyview.html";
 	console.log("COMPANY JAO");
@@ -102,7 +102,7 @@ var getCompany = function () {
 	var p = document.getElementById("compName");
 	
 	$.ajax({
-		url:"php/getComp.php",
+		url:"php/getcomp.php",
 		type: "GET",
 		dataType: "JSON",
 		success: function(data) {
