@@ -109,7 +109,11 @@ var getCompany = function () {
 		dataType: "JSON",
 		success: function(data) {
 			console.log(data);
+<<<<<<< HEAD
 			info.innerHTML = data;
+=======
+			div.innerHTML = data[0];
+>>>>>>> origin/master
 			p.innerHTML = cname;
 		}
 	})
