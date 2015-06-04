@@ -107,8 +107,8 @@ var getCompany = function () {
 		dataType: "JSON",
 		success: function(data) {
 			console.log(data);
-			div.innerHTML = data.info;
-			p.innerHTML = data.cname;
+			div.innerHTML = data[0];
+			p.innerHTML = cname;
 		}
 	})
 }

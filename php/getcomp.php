@@ -9,9 +9,8 @@
 	$companies = array();
 
 	$companyName = utf8_encode($row->cname);
-	$companyInfo = utf8_encode($row->info);
+	$companyInfo = utf8_encode($row->cname);
 	
-	$company['cname'] = utf8_decode($companyName);
 	$company['info'] = utf8_decode($compayInfo);
 		
 	array_push($companies, $company);
