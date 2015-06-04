@@ -2,7 +2,7 @@
 	include_once("dbconf.php");
 	include_once("functions.php");
 
-	$q = "SELECT count(*) userMatches FROM users WHERE username='".$_POST['uname']."'";
+	$q = "SELECT count(*) AS userMatches FROM users WHERE username='".$_POST['uname']."'";
 	$result = queryDb($conn, $q);
 	$userMatches = $result->fetch_object()->userMatches;
 	if($userMatches==0) {
