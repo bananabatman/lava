@@ -88,7 +88,7 @@ var loadCompPage = function (companyname) {
 	var cname = companyname.innerHTML;
 	Cookies.set("cname", cname);
 	console.log(cname);
-	
+	//check if company already in favorites
 	window.location.href="companyview.html";
 	console.log("COMPANY JAO");
 }
@@ -182,7 +182,7 @@ var setFavorite = function () {
 	var uid = Cookies.get("uid");
 	var cname = Cookies.get("cname");
 	$.ajax({
-		url:"php/addfav.php",
+		url:"php/fav.php",
 		data: {uid:uid, cname:cname},
 		type: "POST",
 		dataType: 'JSON',
@@ -192,7 +192,7 @@ var setFavorite = function () {
 				favIcon.src="css/images/favok.png";
 			} else {
 				//remove favorite
-				favIcon.src="css/images/fav.png";
+				favIcon.src="css/images/favok.png";
 			}
 			
 
