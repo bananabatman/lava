@@ -182,6 +182,19 @@ var viewEvents = function() {
 }
 
 var getLocation = function() {
+	var cname = Cookies.get("cname");
+
+	$.ajax({
+		url:"php/getlocation.php",
+		data: {cname:cname},
+		type: "GET",
+		dataType: 'JSON',
+		success: function(data) {
+		alert(cname + " står i "+data);
+
+		}
+	})
+
 
 }
 var checkFavorite = function() {
