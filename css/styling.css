@@ -16,6 +16,14 @@ html{
 	opacity: 0.9;
 }
 
+#events {
+	position: absolute;
+	right:70%;
+	margin-right: -35%;
+	top:13%;
+	opacity: 0.9;
+}
+
 #test{
 	position: absolute;
 	top: 50%;
@@ -168,9 +176,9 @@ html{
 
 #compName {
 	position:absolute;
-	top:13%;
-	left:20%;
-	margin-left:-10%;
+	top:25%;
+	left:50%;
+	margin-left:-30%;
 	font-size:120px;
 	font-style: bold;
 	color:white;

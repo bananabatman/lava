@@ -176,7 +176,14 @@ var getCompanyList = function () {
 
 }
 
+var viewEvents = function() {
+	var cname = Cookies.get("cname");
+	document.getElementById("compName").innerHTML=cname;
+}
 
+var getLocation = function() {
+
+}
 var checkFavorite = function() {
 	var favIcon = document.getElementById("favCompView");
 	var uid = Cookies.get("uid");
@@ -196,7 +203,7 @@ var checkFavorite = function() {
 				console.log("fav false");
 
 				//remove favorite
-				favIcon.src="css/images/favok.png";
+				favIcon.src="css/images/fav.png";
 			}
 			
 

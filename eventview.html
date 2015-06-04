@@ -8,22 +8,18 @@
 <link type="text/css" href="css/startviewStyling.css" rel="stylesheet" />
 <link type="text/css" href="css/styling.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="css/images/kub.png">
-<title id="title"></title>
+<title>Events</title>
 </head>
 
-<body onload="getCompany();setCurrentUser();checkFavorite()">
+
+<body onload="viewEvents();setCurrentUser()">
 	<div id="statusbar">
 		<p id="currUser"></p>
 	</div>
 	<p id="compName"></p>
-	<img id="favCompView" src="css/images/fav.png" onclick="setFavorite()" class="icon"></img>
-	<img id="location" src="css/images/map.png" class="icon" onclick="getLocation()"></img>
-	<a href="eventview.html">
-		<img id="events" src="css/images/events.png" class="icon" onclick="viewEvents()"></img>
-	</a>
+	<img id="skyline" src="css/images/dev.png"></img>
 	<button onclick="goBack()" id="back">Back</button>
-	
-	<p id="compInfo">
-	</p>
+
+	<table id="table"></table>
 </body>
 </html>
