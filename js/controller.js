@@ -178,7 +178,23 @@ var getCompanyList = function () {
 
 var viewEvents = function() {
 	var cname = Cookies.get("cname");
+	var table = document.getElementById("table");
 	document.getElementById("compName").innerHTML=cname;
+	console.log("mu");
+	$.ajax({
+		url:"php/getevents.php",
+		data: {cname:cname},
+		type: "GET",
+		dataType: 'JSON',
+		success: function(data) {
+			console.log("EY");
+			console.log(data);
+			for(i=0; i<data.length; i++) {
+				table.insertRow(i)=data[i];
+			}
+
+		}
+	})
 }
 
 var getLocation = function() {
@@ -230,7 +246,7 @@ var setFavorite = function () {
 	//inserts company information into favorites database
 	var uid = Cookies.get("uid");
 	var cname = Cookies.get("cname");
-
+	var favIcon = document.getElementById("favCompView");
 	$.ajax({
 		url:"php/fav.php",
 		data: {uid:uid, cname:cname},
@@ -240,10 +256,10 @@ var setFavorite = function () {
 			if(data){
 				console.log("fav true");
 				//add favorite
-
+				favIcon.src="css/images/favok.png";
 			} else {
 				console.log("fav false");
-
+				favIcon.src="css/images/fav.png";
 				//remove favorite
 
 			}
