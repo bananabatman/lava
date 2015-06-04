@@ -10,7 +10,9 @@
 	$bookmark = $result->bookmark;
 	
 	if($bookmark==0) {
-		$q = "INSERT INTO bookmarks (uid, cid, cname) VALUES(".$_POST['uid'].", ".$cid.", '".$_POST['cname']."');";
+		$uid = $_POST['uid'];
+		$cname = $_POST['cname'];
+		$q = "INSERT INTO bookmarks (uid, cid, cname) VALUES(".$uid.", ".$cid.", '".$cname."');";
 		queryDb($conn, $q);
 		echo json_encode(true);
 	} else  {
