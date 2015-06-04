@@ -190,7 +190,7 @@ var viewEvents = function() {
 			console.log("EY");
 			console.log(data);
 			for(i=0; i<data.length; i++) {
-				table.insertRow(i)=data[i];
+				$('#tableevents').html($('#tableevents').html()+data[i]);
 			}
 
 		}
