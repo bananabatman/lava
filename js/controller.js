@@ -89,11 +89,11 @@ var loadCompPage = function (companyname) {
 	Cookies.set("cname", cname);
 	console.log("compname "+ cname);
 	
-	window.location.href="companyview.html;
+	window.location.href="companyview.html";
 	console.log("COMPANY JAO");
 }
 
-var getCompany() = function () {
+var getCompany = function () {
 	// Load the company from the cookie set by loadCompPage
 	var cname = Cookies.get("cname");
 	console.log("Got cookie: " + cname);
@@ -115,7 +115,21 @@ var getCompany() = function () {
 
 
 var getFavorites = function () {
-	populateTable();
+	var table = document.getElementById("table");
+	var uid= Cookies.get("uid");
+
+	$.ajax({
+		url:"php/getbookmarks.php",
+		type: "GET",
+		data: {uid:uid},
+		dataType: 'JSON',
+		success: function(data) {
+			console.log(data);
+			for(i=0; i<data.length; i++) {
+				table.insertRow(i).insertCell(0).innerHTML="<p onclick='loadCompPage(this)'>"+data[i]+"</p>";
+			}
+		}
+	})
 }
 
 var search = function() {
@@ -139,7 +153,7 @@ var search = function() {
 	})
 }
 
-var populateTable = function () {
+var getCompanyList = function () {
 
 	//var companies = Cookies.get("listcomp"); 	//.split(",");
 	//console.log(companies);
@@ -167,43 +181,23 @@ var setFavorite = function () {
 	var favIcon = document.getElementById("favCompView");
 	var uid = Cookies.get("uid");
 	var cname = Cookies.get("cname");
-	if(favIcon.src.search("fav.png") != -1) {
-		$.ajax({
-			url:"php/addfav.php",
-			data: {uid:uid, cname:cname},
-			type: "POST",
-			dataType: 'JSON',
-			success: function(data) {
-				if(data){
-					favIcon.src="css/images/favok.png";
-				}
-				
-
+	$.ajax({
+		url:"php/addfav.php",
+		data: {uid:uid, cname:cname},
+		type: "POST",
+		dataType: 'JSON',
+		success: function(data) {
+			if(data){
+				//add favorite
+				favIcon.src="css/images/favok.png";
+			} else {
+				//remove favorite
+				favIcon.src="css/images/fav.png";
 			}
-		})
+			
 
-		//alert(Cookies.get("cname")+" added to favorites!");
-		//add favorite
-	} else {
-		//remove favorite
-		//alert(Cookies.get("cname")+" removed from favorites!");
-		$.ajax({
-			url:"php/removefav.php",
-			data: {uid:uid, cname:cname},
-			type: "POST",
-			dataType: 'JSON',
-			success: function(data) {
-				if(data){
-					favIcon.src="css/images/fav.png";
-				}
-				
-
-			}
-		})
-	}
-	
-	
-	//alert("FAV SET JAO");
+		}
+	})
 
 }
 
