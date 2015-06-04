@@ -3,7 +3,7 @@
 	include_once("functions.php");
 
 	$input = $_GET;
-	$q = "SELECT count(*) AS bookmark FROM bookmarks WHERE cname='".$_GET['cname']."' AND uid=".$_GET['uid'].";";
+	$q = "SELECT count(*) AS bookmark FROM bookmarks WHERE cname='".utf8_decode($_GET['cname'])."' AND uid=".$_GET['uid'].";";
 	$result=queryDb($conn, $q)->fetch_object();
 	$bookmark = $result->bookmark;
 	
