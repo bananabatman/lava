@@ -8,17 +8,14 @@
 	$events = array();
 
 	while($row = $result->fetch_object()) {
-		// $location=utf8_encode($row['location']);
-		// $type=$row['type'];
-		// $date=$row['event_date'];
-		// $time=$row['time'];
-		// $event="<tr><td>".$date."</td><td>".$time."</td><td>".$type."</td><td>".$location."</td></tr>";
+	
 		$location=$row->location;
 		$type=$row->type;
 		$date=$row->event_date;
 		$time=$row->event_time;
 		$event="<tr><td>".$date."</td><td>".$time."</td><td>".$type."</td><td>".$location."</td></tr>";
-		array_push($events, $event);
+		array_push($events, $row);
+
 	}
 
     echo json_encode($events);

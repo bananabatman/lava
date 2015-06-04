@@ -128,7 +128,7 @@ var getFavorites = function () {
 		success: function(data) {
 			console.log(data);
 			for(i=0; i<data.length; i++) {
-				table.insertRow(i).insertCell(0).innerHTML="<p onclick='loadCompPage(this)'>"+data[i]+"</p>";
+				table.insertRow(i).innerHTML="<p onclick='loadCompPage(this)'>"+data[i]+"</p>";
 			}
 		}
 	})
