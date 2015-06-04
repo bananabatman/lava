@@ -5,7 +5,7 @@
 	$q = "SELECT cid FROM company WHERE cname='".$_POST['cname']."';";
 	$cid = queryDb($conn, $q)->fetch_object()->cid;
 	
-	$q = "SELECT count(*) AS bookmark FROM company WHERE cid=".$cid." AND uid=".$_POST['uid']";";
+	$q = "SELECT count(*) AS bookmark FROM bookmarks WHERE cname='".$_POST['cname']."' AND uid=".$_POST['uid'].";";
 	$result=queryDb($conn, $q)->fetch_object();
 	$bookmark = $result->bookmark;
 	
