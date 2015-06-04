@@ -10,9 +10,11 @@
 	if($result==0) {
 		$q = "INSERT INTO bookmarks (uid, cid, cname) VALUES(".$_POST['uid'].", ".$results.", '".$_POST['cname']."');";
 		queryDb($conn, $q);
+		echo json_encode(true);
 	} else if ($result==1) {
 		$q = "DELETE FROM bookmarks WHERE uid=".$_POST['uid']." AND cid=".$results.";";
 		queryDb($conn, $q);
+		echo json_encode(false);
 	}
 
 ?>
