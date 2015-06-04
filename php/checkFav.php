@@ -2,8 +2,8 @@
 	include_once("dbconf.php");
 	include_once("functions.php");
 
-	$input = $_POST;
-	$q = "SELECT count(*) AS bookmark, cid FROM company WHERE cname='".$_POST['cname']."';";
+	$input = $_GET;
+	$q = "SELECT count(*) AS bookmark FROM bookmarks WHERE cname='".$_GET['cname']."';";
 	$result=queryDb($conn, $q)->fetch_object();
 	$bookmark = $result->bookmark;
 	

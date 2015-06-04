@@ -205,7 +205,7 @@ var checkFavorite = function() {
 	$.ajax({
 		url:"php/checkFav.php",
 		data: {uid:uid, cname:cname},
-		type: "POST",
+		type: "GET",
 		dataType: 'JSON',
 		success: function(data) {
 			if(data){
