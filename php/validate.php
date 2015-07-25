@@ -2,8 +2,8 @@
 	include_once("dbconf.php");
 	include_once("functions.php");
 
-	$hashbrownie = hash("sha256", 'gnullipop'.$_GET['pword']);
-	$q = "SELECT count(*) userMatches, uid FROM users WHERE username='".$_GET['uname']."' AND password='".$hashbrownie."';";
+	// $hashbrownie = hash("sha256", 'gnullipop'.$_GET['pword']);
+	$q = "SELECT count(*) userMatches, uid FROM users WHERE username='".$_GET['uname']."' AND password='".$_GET['pword']."';";
 	$result = queryDb($conn, $q);
 	$row = $result->fetch_object();
 	$return = array();

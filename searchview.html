@@ -2,31 +2,71 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/jquery.js"></script>
-<script src="js/controller.js"></script>
 <script src="js/cookies.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/controller.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link type="text/css" href="css/styling.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="css/images/kub.png">
 <title>Sök</title>
 </head>
 
 
-<body>
-	<div id="statusbar">
-		<p id="currUser" ></p>
+<body onload="setCurrentUser()">
+	
+	<div class="bg container-fluid">
+		<div class="row statusbar">
+			<div class"=col-xs-6 ">
+				<img onclick="goBack()" id="back" src="/lava/css/images/back.png"></img>
+			</div>
+<!-- 			<div class"=col-xs-6">
+				<p id="currUser"></p>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="col-xs-12" >
+				<img id="lava" src="css/images/lava.png" class="lava"></img>
+			</div>
+		</div>
+		<div class="col-xs-12">
+	  		<input type="search" name="searchphrase" id="searchid" onsearch="search()" class="input" value="  Sök företag"/>
+	  	</div>
+	  	<div class="btn-group btn-group-sm center">
+			<div class="btn-group btn-group-sm">
+			    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+			    OMRÅDEN <span class="caret"></span></button>
+			    <ul class="dropdown-menu" role="menu">
+			      <li>Arkitektur</li>
+			      <li>Byggprojektledning</li>
+			      <li>Fastighetsekonomi</li>
+			      <li>Fastighetsjuridik</li>
+			      <li>Geografisk IT</li>
+			      <li>Hus och Anläggning</li>
+			      <li>Mark och vatten</li>
+			      <li>Stadsplanering</li>
+			      <li>Trafikteknik</li>
+			    </ul>
+			</div>
+			<div class="btn-group btn-group-sm">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+			    ERBJUDER <span class="caret"></span></button>
+			    <ul class="dropdown-menu" role="menu">
+			      <li>Exjobb</li>
+			      <li>Praktik</li>
+			      <li>Traineeprogram</li>
+			      <li>Utlandsmöjligheter</li>
+			    </ul>
+
+		 	</div>
+		 	<button value="Sök företag" type="submit" class="btn" id="searchGo" onclick="search()"/>SÖK</button>
+		</div>
+	  	<div class="col-xs-12">
+			<ul id="tablesearch"></ul>
+		</div>			
 	</div>
-	<img id="lavasearch" src="css/images/lavasearch.png" ></img>
-	<img id="skyline" src="css/images/dev.png"></img>
-	<!-- <form id="searchbar" method="post" action="php/results.php"> -->
-	<input type="search" name="searchphrase" id="searchid" onsearch="search()"/>
-
-	<!-- </form> -->
-	<table id="tablesearch">
-	</table>
-
-	<button onclick="goBack()" id="back">Back</button>
-
-
-	</body>
+</body>
 </html>
- 
+
+

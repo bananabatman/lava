@@ -2,23 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/jquery.js"></script>
-<script src="js/controller.js"></script>
 <script src="js/cookies.min.js"></script>
+<script src="js/controller.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link type="text/css" href="css/styling.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="css/images/kub.png">
-<title>Bokmärken</title>
+<title>Favoriter</title>
 </head>
 
-<body onload="getFavorites();setCurrentUser()">
-	<div id="statusbar">
-		<p id="currUser"></p>
-	</div>
-	<img id="lavafav" src="css/images/lavafav.png" ></img>
-	<img id="skyline" src="css/images/dev.png"></img>
-	<table id="table">
-	</table>
 
-	<button onclick="goBack()" id="back">Back</button>
+<body onload="getFavorites();setCurrentUser()">
+	
+	<div class="bg container-fluid">
+		<div class="row statusbar">
+			<div class"=col-xs-6 ">
+				<img onclick="goBack()" id="back" src="/lava/css/images/back.png"></img>
+			</div>
+<!-- 			<div class"=col-xs-6">
+				<p id="currUser"></p>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="col-xs-12" >
+				<img id="lava" src="css/images/lava.png" class="lava"></img>
+			</div>
+		</div>
+		<div class="row">
+			<table id="table"></table>
+		</div>
+	</div>
 </body>
 </html>
+
+

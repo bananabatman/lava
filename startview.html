@@ -2,35 +2,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/jquery.js"></script>
-<script src="js/controller.js"></script>
 <script src="js/cookies.min.js"></script>
+<script src="js/controller.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link type="text/css" href="css/styling.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="css/images/kub.png">
-<title>Lava</title>
+<title>Start</title>
 </head>
 
 
 <body onload="setCurrentUser()">
-	<div id="statusbar">
-		<p id="currUser"></p></div>
-	<img id="lava" src="css/images/lava.png" ></img>
-
-	<!--<div id ="menu">-->
-		<a href="searchview.html"  id="searchref">
-			<img class="icon" src="css/images/searchR.png" id="search"/>
-		</a>
-		<a href="favoritesview.html"  id="favref" >
-			<img class="icon" src="css/images/fav.png" id="fav" />
-		</a>
-		<a href="listview.html"  id="listref" onclick="getCompanyList()">
-
-			<img class="icon" src="css/images/list.png" id="list"/>
-		</a>
-	<!--</div>-->
-	<img id="skyline" src="css/images/dev.png"></img>
-
-
-
+	
+	<div class="bg container-fluid">
+		<div class="row statusbar">
+			<div class"=col-xs-6 ">
+				<img onclick="goBack()" id="back" src="/lava/css/images/back.png"></img>
+			</div>
+<!-- 			<div class"=col-xs-6">
+				<p id="currUser"></p>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="col-xs-12" >
+				<img id="lava" src="css/images/lava.png" class="lava"></img>
+			</div>
+		</div>
+		<div class="menu">
+			<div class="row">
+				<a href="searchview.html">
+					<button class="btn button">SÖK</button>
+				</a>
+			</div>
+			<div class="row">
+				<a href="listview.html">
+					<button class="btn button">FÖRETAG</button>
+				</a>
+			</div>
+			<div class="row">
+				<a href="favoritesview.html">	
+					<button class="btn button">FAVORITER</button>
+				</a>
+			</div>
+			<div class="row">
+				<a href="eventview.html">	
+					<button class="btn button">EVENTS</button>
+				</a>
+			</div>
+			<div class="row">
+				<a href="mapview.html">	
+					<button class="btn button">MÄSSKARTA</button>
+				</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
+
+

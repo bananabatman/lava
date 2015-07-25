@@ -1,9 +1,9 @@
 <?php
 
-	$hostname = "mysql-vt2015.csc.kth.se";
-	$username = 'viktorbjadmin';
-	$password = 'Ogm7axfJ';
-	$database = 'viktorbj';
+	$hostname = "localhost";
+	$username = 'root';
+	$password = '';
+	$database = 'lava';
 
 	$conn = mysqli_connect($hostname, $username, $password, $database);
 
